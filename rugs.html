@@ -3,202 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tobel Rugs | Luxury Hand-Crafted Rugs</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" defer></script>
+    <title>Tobel Rugs | Luxury Hand-Crafted Rugs Since 1995</title>
+    <style>
+        :root {
+            --serif: "Cormorant Garamond", Georgia, serif;
+            --sans: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans);
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: #1a1a1a;
+        }
+
+        .hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            padding: 8rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .collection-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .collection-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .collection-info {
+            margin-top: 1.5rem;
+        }
+
+        .collection-info h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .custom-design {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .custom-design img {
+            width: 100%;
+            height: auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .contact-section {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-family: var(--sans);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 6rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+        }
+
+        .footer-title {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .custom-design, .contact-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <header class="fixed w-full bg-white shadow-md z-50" x-data="{ isOpen: false }">
-        <nav class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="#" class="text-gray-800 text-xl font-bold tracking-wider">TOBEL RUGS</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#collections" class="text-gray-600 hover:text-gray-900">Collections</a>
-                    <a href="#custom" class="text-gray-600 hover:text-gray-900">Custom Design</a>
-                    <a href="#expertise" class="text-gray-600 hover:text-gray-900">Our Expertise</a>
-                    <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
-                    <a href="#appointment" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">Book Appointment</a>
-                </div>
-                <button @click="isOpen = !isOpen" class="md:hidden">
-                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                        <path x-show="!isOpen" d="M4 6h16M4 12h16M4 18h16"></path>
-                        <path x-show="isOpen" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div x-show="isOpen" class="md:hidden mt-3">
-                <a href="#collections" class="block py-2 text-gray-600">Collections</a>
-                <a href="#custom" class="block py-2 text-gray-600">Custom Design</a>
-                <a href="#expertise" class="block py-2 text-gray-600">Our Expertise</a>
-                <a href="#contact" class="block py-2 text-gray-600">Contact</a>
-                <a href="#appointment" class="block py-2 text-gray-600">Book Appointment</a>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">TOBEL</a>
+            <div class="nav-links">
+                <a href="#collections">Collections</a>
+                <a href="#custom">Bespoke</a>
+                <a href="#expertise">Heritage</a>
+                <a href="#contact">Contact</a>
+                <a href="#appointment" class="btn-primary">Private Consultation</a>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="relative h-screen">
-            <img src="https://images.unsplash.com/photo-1534889156217-d643df14f14a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cnVnfGVufDB8fDB8fHww" alt="Luxury Rug Display" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-center">
-                <div class="max-w-3xl px-6">
-                    <h1 class="text-5xl md:text-6xl font-light text-white mb-6">Luxury Hand-Crafted Rugs</h1>
-                    <p class="text-xl text-white mb-8">Established in 1995 | New York City</p>
-                    <a href="#collections" class="inline-block bg-white text-black px-8 py-3 text-lg font-light tracking-wide hover:bg-gray-100">
-                        View Collections
-                    </a>
-                </div>
-            </div>
-        </section>
+    <section class="hero">
+        <img src="https://www.tufenkian.com/cdn/shop/articles/Fade_Blue_10x14_Room-50_Cam_2Lifestyle_LR_ab81575a-b52d-4e36-af0d-5c0eb2075c5e.jpg?v=1718297734" alt="Luxury Handcrafted Rug">
+        <div class="hero-content">
+            <h1>Artisanal Excellence Since 1995</h1>
+            <p style="font-size: 1.2rem; letter-spacing: 0.2em; text-transform: uppercase;">Hand-Knotted Luxury Rugs</p>
+        </div>
+    </section>
 
-        <section id="collections" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-light text-center mb-16">Signature Collections</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="group cursor-pointer">
-                        <div class="relative overflow-hidden">
-                            <img src="https://theredcarpetaustralia.com.au/cdn/shop/files/Premium_Tribal_persion_high_Quality_Rug_closeup_in_living_room_25dd6e15-a2cf-464c-bea4-48df704dec9b_2000x.jpg?v=1731400542" alt="Classic Collection" class="w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-opacity duration-500"></div>
-                        </div>
-                        <h3 class="text-2xl font-light mt-6 mb-2">Classic Collection</h3>
-                        <p class="text-gray-600">Timeless patterns inspired by Persian heritage</p>
+    <section id="collections" class="section">
+        <div class="container">
+            <h2 class="section-title">Curated Collections</h2>
+            <div class="collections-grid">
+                <div class="collection-item">
+                    <img src="https://m.media-amazon.com/images/I/A1Q8bHH61GL._AC_UF894,1000_QL80_.jpg" alt="Heritage Collection">
+                    <div class="collection-info">
+                        <h3>Heritage Collection</h3>
+                        <p>Classical Persian artistry reimagined</p>
                     </div>
-                    <div class="group cursor-pointer">
-                        <div class="relative overflow-hidden">
-                            <img src="https://media.istockphoto.com/id/1210163723/photo/beautiful-living-room-interior-with-colorful-area-rug-large-couch-and-abundant-natural-light.jpg?s=612x612&w=0&k=20&c=v0_G3q_E2b5wfQz55ER3EhylX1p02rN-tGaHiKfw2XM=" alt="Modern Collection" class="w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-opacity duration-500"></div>
-                        </div>
-                        <h3 class="text-2xl font-light mt-6 mb-2">Modern Collection</h3>
-                        <p class="text-gray-600">Contemporary designs for modern spaces</p>
+                </div>
+                <div class="collection-item">
+                    <img src="https://i5.walmartimages.com/seo/Masada-Rugs-High-Quality-Hand-Carved-Area-Rug-Modern-Contemporary-Red-White-Grey-Black-5-Feet-3-Inch-X-7-Feet_c700ba72-304c-4b4b-8e6e-256dae02a295.076dd50b737b7ca9ec553ced0a75474a.jpeg" alt="Contemporary Collection">
+                    <div class="collection-info">
+                        <h3>Contemporary Collection</h3>
+                        <p>Modern aesthetic, timeless craft</p>
                     </div>
-                    <div class="group cursor-pointer">
-                        <div class="relative overflow-hidden">
-                            <img src="https://theglitzypear.com/wp-content/uploads/2024/01/history-of-rugs-1.jpg" alt="Artisan Collection" class="w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-opacity duration-500"></div>
-                        </div>
-                        <h3 class="text-2xl font-light mt-6 mb-2">Artisan Collection</h3>
-                        <p class="text-gray-600">Hand-knotted masterpieces by master weavers</p>
+                </div>
+                <div class="collection-item">
+                    <img src="https://m.media-amazon.com/images/I/A1QxToygTES._AC_UF894,1000_QL80_.jpg" alt="Artisan Collection">
+                    <div class="collection-info">
+                        <h3>Artisan Collection</h3>
+                        <p>Limited edition masterworks</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="custom" class="py-24 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-4xl font-light mb-8">Custom Design Service</h2>
-                        <p class="text-gray-600 mb-8">Experience our bespoke rug design service where your vision meets our craftsmanship. Work directly with our designers to create a unique piece for your space.</p>
-                        <a href="#appointment" class="inline-block bg-black text-white px-8 py-3 text-lg font-light tracking-wide hover:bg-gray-800">
-                            Schedule Consultation
-                        </a>
-                    </div>
-                    <div>
-                        <img src="https://www.parkeroverseas.com/assets/images/our-process.png" alt="Custom Design Process" class="w-full rounded-lg shadow-lg">
-                    </div>
+    <section id="custom" class="section" style="background: #f8f8f8;">
+        <div class="container">
+            <div class="custom-design">
+                <div>
+                    <h2 style="font-family: var(--serif); font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem;">Bespoke Creation</h2>
+                    <p style="margin-bottom: 2rem;">Experience our distinguished bespoke service, where your vision is transformed into an heirloom-quality piece through time-honored craftsmanship.</p>
+                    <a href="#appointment" class="btn-primary">Schedule Consultation</a>
+                </div>
+                <img src="https://www.thewovenedge.com/uploads/8/4/1/7/84179184/published/rug-process-1-2x.png?1574942455" alt="Bespoke Design Process">
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Heritage</h2>
+            <div class="expertise-grid">
+                <div>
+                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Master Artisans</h3>
+                    <p>Three generations of expertise in traditional craftsmanship</p>
+                </div>
+                <div>
+                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Noble Materials</h3>
+                    <p>Sourced from the world's finest wool and silk producers</p>
+                </div>
+                <div>
+                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Ethical Practice</h3>
+                    <p>Commitment to sustainable production and fair trade</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="expertise" class="py-24 bg-white">
-            <div class="container mx-auto px-6 text-center max-w-4xl">
-                <h2 class="text-4xl font-light mb-8">Our Expertise</h2>
-                <p class="text-gray-600 mb-16">With three decades of experience in fine rug making, we maintain the highest standards of quality and craftsmanship in every piece we create.</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div>
-                        <h3 class="text-xl font-light mb-4">Master Craftsmen</h3>
-                        <p class="text-gray-600">30+ years of combined expertise in traditional rug making techniques</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-light mb-4">Premium Materials</h3>
-                        <p class="text-gray-600">Sourced from the finest wool, silk, and natural fiber producers globally</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-light mb-4">Sustainable Practice</h3>
-                        <p class="text-gray-600">Committed to ethical production and environmental responsibility</p>
-                    </div>
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2 style="font-family: var(--serif); font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem;">Contact</h2>
+                    <p style="margin-bottom: 2rem;">atelier@tobel.com</p>
+                    <p style="margin-bottom: 2rem;">+1 (212) 555-0123</p>
+                    <p>580 Madison Avenue<br>New York, NY 10022</p>
                 </div>
+                <form>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message" rows="4"></textarea>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send</button>
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="py-24 bg-black text-white">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-4xl font-light mb-8">Contact Us</h2>
-                        <div class="space-y-6">
-                            <p>showroom@tobelrugs.com</p>
-                            <p>+1 (212) 555-0123</p>
-                            <p>580 Madison Avenue<br>New York, NY 10022</p>
-                            <div class="flex space-x-4 mt-8">
-                                <a href="#" class="text-white hover:text-gray-300">Instagram</a>
-                                <a href="#" class="text-white hover:text-gray-300">Pinterest</a>
-                                <a href="#" class="text-white hover:text-gray-300">LinkedIn</a>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="space-y-6">
-                        <div>
-                            <input type="text" placeholder="Name" class="w-full px-4 py-3 bg-transparent border border-white text-white placeholder-gray-400">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Email" class="w-full px-4 py-3 bg-transparent border border-white text-white placeholder-gray-400">
-                        </div>
-                        <div>
-                            <textarea placeholder="Message" rows="4" class="w-full px-4 py-3 bg-transparent border border-white text-white placeholder-gray-400"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-white text-black px-8 py-3 text-lg font-light hover:bg-gray-100">
-                            Send Message
-                        </button>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">Collections</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Heritage</a></li>
+                        <li><a href="#">Contemporary</a></li>
+                        <li><a href="#">Artisan</a></li>
+                        <li><a href="#">Bespoke</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Custom Design</a></li>
+                        <li><a href="#">Conservation</a></li>
+                        <li><a href="#">Restoration</a></li>
+                        <li><a href="#">Valuation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Heritage</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Private List</h3>
+                    <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.6);">Receive privileged access to new collections and private events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email" class="newsletter-input">
+                        <button type="submit" class="btn-primary">Join</button>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div>
-                    <h3 class="text-lg font-light mb-4">Collections</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Classic</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Modern</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Artisan</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Custom</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-light mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Custom Design</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Cleaning</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Restoration</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Appraisal</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-light mb-4">Company</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-light mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">Subscribe to receive updates on new collections and events.</p>
-                    <form class="flex">
-                        <input type="email" placeholder="Email address" class="flex-grow px-4 py-2 bg-gray-800 text-white placeholder-gray-400">
-                        <button type="submit" class="bg-white text-black px-6 py-2 ml-2 hover:bg-gray-100">Sign Up</button>
-                    </form>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>© 2025 Tobel Rugs. All rights reserved.</p>
+            <div class="copyright">
+                <p>© 2025 Tobel. All rights reserved.</p>
             </div>
         </div>
     </footer>
