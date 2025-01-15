@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Institute of Advanced Research | NIAR</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #1a4d80;
+            --accent: #c8102e;
+            --text: #1a1a1a;
+            --gray-light: #f5f7f9;
+            --gray-medium: #e2e8f0;
+            --gray-dark: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #ffffff;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--gray-medium);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 1rem;
+        }
+
+        .logo-text {
+            line-height: 1.2;
+        }
+
+        .logo-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .logo-subtitle {
+            font-size: 0.875rem;
+            color: var(--gray-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 1rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 4rem 1rem;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--gray-medium);
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background: var(--secondary);
+        }
+
+        .stats {
+            background: var(--gray-light);
+            padding: 4rem 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-item {
+            border: 1px solid var(--gray-medium);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--gray-dark);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 1rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h4 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>NIAR.gov</div>
+            <div>
+                <a href="#">Staff Portal</a>
+                <a href="#">Accessibility</a>
+                <a href="#">FOIA</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <svg width="60" height="60" viewBox="0 0 60 60">
+                    <rect width="60" height="60" fill="#003366"/>
+                    <text x="50%" y="50%" fill="white" text-anchor="middle" dominant-baseline="middle" style="font-size: 24px; font-weight: bold;">NIAR</text>
+                </svg>
+                <div class="logo-text">
+                    <div class="logo-title">National Institute of Advanced Research</div>
+                    <div class="logo-subtitle">Excellence in Scientific Discovery</div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#">Research Programs</a>
+                <a href="#">Publications</a>
+                <a href="#">Grants</a>
+                <a href="#">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Advancing Scientific Research<br>for National Progress</h1>
+                <p>Leading interdisciplinary research initiatives to address critical challenges in science, technology, and society.</p>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="section-content">
+                <div class="stats-grid">
+                    <div>
+                        <div class="stat-number">$2.8B</div>
+                        <div>Annual Research Funding</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">1,200+</div>
+                        <div>Research Projects</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">4,500</div>
+                        <div>Scientists & Staff</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">180</div>
+                        <div>Partner Institutions</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-content">
+                <h2>Current Research Initiatives</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Quantum Computing Research</h3>
+                        <p>Advancing the foundations of quantum information science and its applications in computing and communication.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Climate Science</h3>
+                        <p>Studying atmospheric and oceanic processes to improve climate prediction and mitigation strategies.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Biotechnology</h3>
+                        <p>Developing innovative solutions in synthetic biology and bioengineering for healthcare and sustainability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--gray-light);">
+            <div class="section-content">
+                <h2>Latest Publications & News</h2>
+                <div class="news-grid">
+                    <div class="news-item">
+                        <div class="news-content">
+                            <div class="news-date">January 12, 2025</div>
+                            <h3>NIAR Researchers Achieve Breakthrough in Quantum Error Correction</h3>
+                            <p>A team of NIAR scientists has developed a novel approach to quantum error correction...</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-content">
+                            <div class="news-date">January 8, 2025</div>
+                            <h3>2025 Research Grant Applications Now Open</h3>
+                            <p>The National Institute of Advanced Research announces its annual research funding opportunity...</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-content">
+                            <div class="news-date">January 5, 2025</div>
+                            <h3>International Climate Science Summit Announced</h3>
+                            <p>NIAR will host the 2025 International Climate Science Summit...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li>1000 Research Boulevard</li>
+                    <li>Washington, DC 20001</li>
+                    <li>Tel: (202) 555-0100</li>
+                    <li>Email: info@niar.gov</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Research Database</a></li>
+                    <li><a href="#">Grant Applications</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">FOIA</a></li>
+                    <li><a href="#">Ethics Guidelines</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Media Inquiries</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">Public Records</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 National Institute of Advanced Research. All rights reserved. An official website of the United States government.
+        </div>
+    </footer>
+</body>
+</html>
