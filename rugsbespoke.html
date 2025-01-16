@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke Design | Tobel Rugs</title>
+    <style>
+        /* Same base styles as rugs.html */
+        .custom-design {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .custom-design img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .custom-design {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="rugs.html" class="logo">TOBEL</a>
+            <div class="nav-links">
+                <a href="rugscollections.html">Collections</a>
+                <a href="rugsbespoke.html">Bespoke</a>
+                <a href="rugsheritage.html">Heritage</a>
+                <a href="#contact">Contact</a>
+                <a href="#appointment" class="btn-primary">Private Consultation</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="custom" class="section" style="background: #f8f8f8;">
+        <div class="container">
+            <div class="custom-design">
+                <div>
+                    <h2 style="font-family: var(--serif); font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem;">Bespoke Creation</h2>
+                    <p style="margin-bottom: 2rem;">Experience our distinguished bespoke service, where your vision is transformed into an heirloom-quality piece through time-honored craftsmanship.</p>
+                    <a href="#appointment" class="btn-primary">Schedule Consultation</a>
+                </div>
+                <img src="https://www.thewovenedge.com/uploads/8/4/1/7/84179184/published/rug-process-1-2x.png?1574942455" alt="Bespoke Design Process">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Same footer as rugs.html -->
+    </footer>
+</body>
+</html>
