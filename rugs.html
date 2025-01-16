@@ -125,67 +125,6 @@
             margin: 0 auto;
         }
 
-        .section-title {
-            font-family: var(--serif);
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 4rem;
-            letter-spacing: 0.05em;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .collection-item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .collection-item img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            transition: transform 0.6s;
-        }
-
-        .collection-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .collection-info {
-            margin-top: 1.5rem;
-        }
-
-        .collection-info h3 {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-        }
-
-        .custom-design {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .custom-design img {
-            width: 100%;
-            height: auto;
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-            text-align: center;
-        }
-
         .contact-section {
             background: #1a1a1a;
             color: #fff;
@@ -274,13 +213,8 @@
                 font-size: 2.5rem;
             }
 
-            .custom-design, .contact-grid, .footer-grid {
+            .contact-grid, .footer-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
             }
         }
     </style>
@@ -288,11 +222,11 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">TOBEL</a>
+            <a href="rugs.html" class="logo">TOBEL</a>
             <div class="nav-links">
-                <a href="#collections">Collections</a>
-                <a href="#custom">Bespoke</a>
-                <a href="#expertise">Heritage</a>
+                <a href="rugscollections.html">Collections</a>
+                <a href="rugsbespoke.html">Bespoke</a>
+                <a href="rugsheritage.html">Heritage</a>
                 <a href="#contact">Contact</a>
                 <a href="#appointment" class="btn-primary">Private Consultation</a>
             </div>
@@ -304,68 +238,6 @@
         <div class="hero-content">
             <h1>Artisanal Excellence Since 1995</h1>
             <p style="font-size: 1.2rem; letter-spacing: 0.2em; text-transform: uppercase;">Hand-Knotted Luxury Rugs</p>
-        </div>
-    </section>
-
-    <section id="collections" class="section">
-        <div class="container">
-            <h2 class="section-title">Curated Collections</h2>
-            <div class="collections-grid">
-                <div class="collection-item">
-                    <img src="https://m.media-amazon.com/images/I/A1Q8bHH61GL._AC_UF894,1000_QL80_.jpg" alt="Heritage Collection">
-                    <div class="collection-info">
-                        <h3>Heritage Collection</h3>
-                        <p>Classical Persian artistry reimagined</p>
-                    </div>
-                </div>
-                <div class="collection-item">
-                    <img src="https://i5.walmartimages.com/seo/Masada-Rugs-High-Quality-Hand-Carved-Area-Rug-Modern-Contemporary-Red-White-Grey-Black-5-Feet-3-Inch-X-7-Feet_c700ba72-304c-4b4b-8e6e-256dae02a295.076dd50b737b7ca9ec553ced0a75474a.jpeg" alt="Contemporary Collection">
-                    <div class="collection-info">
-                        <h3>Contemporary Collection</h3>
-                        <p>Modern aesthetic, timeless craft</p>
-                    </div>
-                </div>
-                <div class="collection-item">
-                    <img src="https://m.media-amazon.com/images/I/A1QxToygTES._AC_UF894,1000_QL80_.jpg" alt="Artisan Collection">
-                    <div class="collection-info">
-                        <h3>Artisan Collection</h3>
-                        <p>Limited edition masterworks</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="custom" class="section" style="background: #f8f8f8;">
-        <div class="container">
-            <div class="custom-design">
-                <div>
-                    <h2 style="font-family: var(--serif); font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem;">Bespoke Creation</h2>
-                    <p style="margin-bottom: 2rem;">Experience our distinguished bespoke service, where your vision is transformed into an heirloom-quality piece through time-honored craftsmanship.</p>
-                    <a href="#appointment" class="btn-primary">Schedule Consultation</a>
-                </div>
-                <img src="https://www.thewovenedge.com/uploads/8/4/1/7/84179184/published/rug-process-1-2x.png?1574942455" alt="Bespoke Design Process">
-            </div>
-        </div>
-    </section>
-
-    <section id="expertise" class="section">
-        <div class="container">
-            <h2 class="section-title">Our Heritage</h2>
-            <div class="expertise-grid">
-                <div>
-                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Master Artisans</h3>
-                    <p>Three generations of expertise in traditional craftsmanship</p>
-                </div>
-                <div>
-                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Noble Materials</h3>
-                    <p>Sourced from the world's finest wool and silk producers</p>
-                </div>
-                <div>
-                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Ethical Practice</h3>
-                    <p>Commitment to sustainable production and fair trade</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -394,16 +266,16 @@
                 <div>
                     <h3 class="footer-title">Collections</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Heritage</a></li>
-                        <li><a href="#">Contemporary</a></li>
-                        <li><a href="#">Artisan</a></li>
-                        <li><a href="#">Bespoke</a></li>
+                        <li><a href="rugscollections.html#heritage">Heritage</a></li>
+                        <li><a href="rugscollections.html#contemporary">Contemporary</a></li>
+                        <li><a href="rugscollections.html#artisan">Artisan</a></li>
+                        <li><a href="rugsbespoke.html">Bespoke</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="footer-title">Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Custom Design</a></li>
+                        <li><a href="rugsbespoke.html">Custom Design</a></li>
                         <li><a href="#">Conservation</a></li>
                         <li><a href="#">Restoration</a></li>
                         <li><a href="#">Valuation</a></li>
@@ -412,10 +284,10 @@
                 <div>
                     <h3 class="footer-title">Company</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Heritage</a></li>
+                        <li><a href="rugsheritage.html">Heritage</a></li>
                         <li><a href="#">Press</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
