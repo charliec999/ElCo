@@ -130,64 +130,6 @@
             margin-bottom: 3rem;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card h3 {
-            margin: 1rem 0;
-            font-size: 1.5rem;
-        }
-
-        .pricing {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .price-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .price-card {
-            background: white;
-            color: var(--text-dark);
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .features li {
-            margin: 0.5rem 0;
-        }
-
         .about {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -199,34 +141,6 @@
             width: 100%;
             border-radius: 1rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
         }
 
         footer {
@@ -288,9 +202,9 @@
                 <span>🌊</span> JONES POOLS
             </div>
             <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#about">About</a>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
                 <a href="tel:555-0123" class="cta-button">555-0123</a>
             </div>
         </div>
@@ -299,68 +213,7 @@
     <section class="hero">
         <h1>Making Pools<br>Crystal Clear 🏊‍♂️</h1>
         <p>Professional pool maintenance with exceptional service</p>
-        <a href="#contact" class="cta-button" style="background: white; color: var(--primary);">Get Free Quote</a>
-    </section>
-
-    <section id="services" class="section">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <span style="font-size: 3rem;">🧹</span>
-                <h3>Regular Maintenance</h3>
-                <p>Weekly or bi-weekly cleaning to keep your pool in perfect condition</p>
-            </div>
-            <div class="service-card">
-                <span style="font-size: 3rem;">🧪</span>
-                <h3>Chemical Balance</h3>
-                <p>Expert water testing and treatment for safe, crystal-clear water</p>
-            </div>
-            <div class="service-card">
-                <span style="font-size: 3rem;">🔧</span>
-                <h3>Equipment Service</h3>
-                <p>Professional maintenance and repair of all pool equipment</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-        <div class="section">
-            <h2 class="section-title">Simple Pricing</h2>
-            <div class="price-cards">
-                <div class="price-card">
-                    <h3>Basic</h3>
-                    <div class="price">$99<span style="font-size: 1rem;">/mo</span></div>
-                    <ul class="features">
-                        <li>✓ Weekly Cleaning</li>
-                        <li>✓ Basic Chemical Check</li>
-                        <li>✓ Skimming & Vacuuming</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Get Started</a>
-                </div>
-                <div class="price-card" style="transform: scale(1.05);">
-                    <h3>Pro</h3>
-                    <div class="price">$149<span style="font-size: 1rem;">/mo</span></div>
-                    <ul class="features">
-                        <li>✓ 2x Weekly Cleaning</li>
-                        <li>✓ Full Chemical Balance</li>
-                        <li>✓ Equipment Check</li>
-                        <li>✓ Filter Cleaning</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Get Started</a>
-                </div>
-                <div class="price-card">
-                    <h3>Ultimate</h3>
-                    <div class="price">$199<span style="font-size: 1rem;">/mo</span></div>
-                    <ul class="features">
-                        <li>✓ 3x Weekly Cleaning</li>
-                        <li>✓ Premium Chemical Kit</li>
-                        <li>✓ 24/7 Support</li>
-                        <li>✓ Yearly Deep Clean</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Get Started</a>
-                </div>
-            </div>
-        </div>
+        <a href="contact.html" class="cta-button" style="background: white; color: var(--primary);">Get Free Quote</a>
     </section>
 
     <section id="about" class="section">
@@ -376,25 +229,6 @@
                 </ul>
             </div>
         </div>
-    </section>
-
-    <section id="contact" class="section" style="background: var(--text-dark); color: white;">
-        <h2 class="section-title">Get Your Free Quote</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Email Address" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" placeholder="Phone Number" required>
-            </div>
-            <div class="form-group">
-                <textarea placeholder="Tell us about your pool"></textarea>
-            </div>
-            <button type="submit" class="cta-button" style="width: 100%; background: var(--secondary); color: var(--text-dark);">Send Request</button>
-        </form>
     </section>
 
     <footer>
