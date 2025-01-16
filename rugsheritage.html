@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage | Tobel Rugs</title>
+    <style>
+        /* Same base styles as rugs.html */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 768px) {
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="rugs.html" class="logo">TOBEL</a>
+            <div class="nav-links">
+                <a href="rugscollections.html">Collections</a>
+                <a href="rugsbespoke.html">Bespoke</a>
+                <a href="rugsheritage.html">Heritage</a>
+                <a href="#contact">Contact</a>
+                <a href="#appointment" class="btn-primary">Private Consultation</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="expertise" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Heritage</h2>
+            <div class="expertise-grid">
+                <div>
+                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Master Artisans</h3>
+                    <p>Three generations of expertise in traditional craftsmanship</p>
+                </div>
+                <div>
+                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Noble Materials</h3>
+                    <p>Sourced from the world's finest wool and silk producers</p>
+                </div>
+                <div>
+                    <h3 style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">Ethical Practice</h3>
+                    <p>Commitment to sustainable production and fair trade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Same footer as rugs.html -->
+    </footer>
+</body>
+</html>
