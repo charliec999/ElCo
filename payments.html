@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElCo Web Design Payments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        .package-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .package-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s ease;
+        }
+        .package-btn:hover::before {
+            left: 100%;
+        }
+        .package-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="container max-w-6xl mx-auto px-4 py-8 flex-grow">
+        <div class="grid md:grid-cols-4 gap-4" id="package-selection">
+            <div class="bg-gray-800 rounded-xl p-5 text-center shadow-lg" data-pages="3" data-base-price="525">
+                <h2 class="text-xl font-bold mb-3 text-blue-400">3-Page Website</h2>
+                <p class="text-2xl text-blue-500 mb-4">$525</p>
+                <button class="select-package package-btn bg-blue-600 text-white py-2 px-6 rounded-full w-full hover:bg-blue-700 transition">
+                    Select Package
+                </button>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-5 text-center shadow-lg" data-pages="4" data-base-price="700">
+                <h2 class="text-xl font-bold mb-3 text-purple-400">4-Page Website</h2>
+                <p class="text-2xl text-purple-500 mb-4">$700</p>
+                <button class="select-package package-btn bg-purple-600 text-white py-2 px-6 rounded-full w-full hover:bg-purple-700 transition">
+                    Select Package
+                </button>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-5 text-center shadow-lg" data-pages="5" data-base-price="875">
+                <h2 class="text-xl font-bold mb-3 text-green-400">5-Page Website</h2>
+                <p class="text-2xl text-green-500 mb-4">$875</p>
+                <button class="select-package package-btn bg-green-600 text-white py-2 px-6 rounded-full w-full hover:bg-green-700 transition">
+                    Select Package
+                </button>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-5 text-center shadow-lg" data-pages="0" data-base-price="0.01">
+                <h2 class="text-xl font-bold mb-3 text-red-400">Test Purchase</h2>
+                <p class="text-2xl text-red-500 mb-4">$0.01</p>
+                <button class="select-package package-btn bg-red-600 text-white py-2 px-6 rounded-full w-full hover:bg-red-700 transition">
+                    Test Purchase
+                </button>
+            </div>
+        </div>
+
+        <div id="hosting-details" class="mt-8 bg-gray-800 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-bold mb-4 text-blue-400">Monthly Hosting Details</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Hosting Includes:</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>24/7 Website Monitoring</li>
+                        <li>Automated Security Updates</li>
+                        <li>Daily Website Backups</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Additional Benefits:</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>SSL Certificate Management</li>
+                        <li>Monthly Performance Reports</li>
+                        <li>Basic Technical Support</li>
+                        <li>99.9% Uptime Guarantee</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <p class="text-xl font-bold text-blue-500">$60/month</p>
+            </div>
+        </div>
+
+        <div id="hosting-section" class="hidden mt-8 bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div class="flex items-center mb-4">
+                <input type="checkbox" id="hosting-checkbox" class="mr-4 h-5 w-5 text-blue-600">
+                <label for="hosting-checkbox" class="text-lg">
+                    Add Monthly Hosting: $60/month
+                </label>
+            </div>
+        </div>
+
+        <div id="payment-section" class="hidden mt-8 bg-gray-800 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-bold mb-4 text-blue-400">Payment Details</h3>
+            <div id="total-display" class="text-2xl font-bold mb-6 text-center"></div>
+            <form id="payment-form">
+                <div class="mb-4">
+                    <label class="block mb-2">Email</label>
+                    <input type="email" required class="w-full bg-gray-700 p-3 rounded">
+                </div>
+                <div id="card-element" class="mb-4 bg-gray-700 p-3 rounded"></div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-full hover:bg-blue-700 transition">
+                    Complete Purchase
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const stripe = Stripe('pk_live_51QkCdLAXWw27eYnGhybBygwGzQi7MnDhUF7lmAtlnc9lzTAZqS4dRKu5jPXFUiCAgDLhHKEg24UQAUqi7jpxYRED00yfnigZhg');
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+        
+        let selectedPackage = null;
+        let basePrice = 0;
+        let totalPrice = 0;
+
+        document.querySelectorAll('.select-package').forEach(btn => {
+            btn.addEventListener('click', function() {
+                selectedPackage = this.closest('[data-pages]').getAttribute('data-pages');
+                basePrice = parseFloat(this.closest('[data-base-price]').getAttribute('data-base-price'));
+                
+                document.getElementById('hosting-section').classList.remove('hidden');
+                document.getElementById('payment-section').classList.add('hidden');
+                cardElement.unmount();
+                
+                updateTotalPrice();
+            });
+        });
+
+        document.getElementById('hosting-checkbox').addEventListener('change', function() {
+            updateTotalPrice();
+        });
+
+        function updateTotalPrice() {
+            const hostingChecked = document.getElementById('hosting-checkbox').checked;
+            totalPrice = basePrice + (hostingChecked ? 60 : 0);
+            
+            document.getElementById('total-display').textContent = `Total: $${totalPrice.toFixed(2)}`;
+            
+            document.getElementById('payment-section').classList.remove('hidden');
+            cardElement.mount('#card-element');
+        }
+
+        document.getElementById('payment-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            alert(`Processing payment for ${selectedPackage}-page website at $${totalPrice}`);
+        });
+    </script>
+</body>
+</html>
