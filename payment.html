@@ -117,7 +117,7 @@
                 <ul class="text-left text-lg text-gray-300 mb-6 space-y-2">
                     <li>✔ DO NOT PURCHASE!!!</li>
                 </ul>
-                <p class="text-3xl font-extrabold text-red-500 mb-8">$0.01</p>
+                <p class="text-3xl font-extrabold text-red-500 mb-8">$0.51</p>
                 <button id="checkout-test" class="package-btn bg-red-600 text-white hover:bg-red-700">Test Payment</button>
             </div>
         </div>
@@ -175,7 +175,7 @@
         });
         document.getElementById('checkout-test').addEventListener('click', () => {
             stripe.redirectToCheckout({
-                lineItems: [{ price: 'price_1QlHYCAXWw27eYnGBoW9VtHa', quantity: 1 }],
+                lineItems: [{ price: 'price_1QlHi0AXWw27eYnG9HRd7q0B', quantity: 1 }],
                 mode: 'payment',
                 successUrl: window.location.origin + '/success.html',
                 cancelUrl: window.location.origin + '/canceled.html',
