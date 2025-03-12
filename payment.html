@@ -3,10 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElCo Web Design Packages</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ElCo Web Designs - Packages & Pricing</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233B82F6'/%3E%3Cpath d='M20 30 L80 30 M20 50 L60 50 M20 70 L80 70' stroke='white' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/favicon/0.0.2/favicon.ico">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://js.stripe.com/v3/"></script>
     <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-bottom: 10px;
+            line-height: 1.2;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .title-container {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .button:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        .button:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #3B82F6;
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+        }
+        .logo-icon::before, 
+        .logo-icon::after,
+        .logo-icon .middle-line {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+        .logo-icon::before {
+            top: 12px;
+        }
+        .logo-icon .middle-line {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+        }
+        .logo-icon::after {
+            bottom: 12px;
+        }
+        .package-card {
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
         .package-btn {
             position: relative;
             overflow: hidden;
@@ -30,103 +118,278 @@
             left: 100%;
         }
         .package-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElCo Web Design Packages</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <style>
-        .package-btn {
-            position: relative;
-            overflow: hidden;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.125rem;
-            font-weight: bold;
-            border-radius: 9999px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .package-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            transition: left 0.5s ease;
-        }
-        .package-btn:hover::before {
-            left: 100%;
-        }
-        .package-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-    </style>
-</head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
-    <div class="container max-w-6xl mx-auto px-4 py-8 flex-grow">
-        <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold text-blue-400 mb-6">ElCo Web Design Packages</h1>
-            <p class="text-xl text-gray-300">Explore our tailored web design solutions. Each package is crafted to meet your business needs with premium quality and professionalism.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="bg-gray-800 rounded-2xl p-8 shadow-xl text-center">
-                <h2 class="text-3xl font-bold mb-4 text-blue-400">3-Page Website</h2>
-                <ul class="text-left text-lg text-gray-300 mb-6 space-y-2">
-                    <li>✔ Up to 3 custom-designed pages</li>
-                    <li>✔ Responsive design for all devices</li>
-                    <li>✔ Basic SEO optimization</li>
-                    <li>✔ Contact form integration</li>
-                </ul>
-                <p class="text-3xl font-extrabold text-blue-500 mb-8">$525</p>
-                <button id="checkout-3-page" class="package-btn bg-blue-600 text-white hover:bg-blue-700">Select Package</button>
+<body class="bg-gray-100 text-gray-800 selection:bg-blue-500 selection:text-white">
+    <nav class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="logo-icon">
+                    <div class="middle-line"></div>
+                </div>
+                <span class="text-3xl font-bold gradient-text tracking-wider">ElCo</span>
             </div>
-            <div class="bg-gray-800 rounded-2xl p-8 shadow-xl text-center">
-                <h2 class="text-3xl font-bold mb-4 text-purple-400">4-Page Website</h2>
-                <ul class="text-left text-lg text-gray-300 mb-6 space-y-2">
-                    <li>✔ Up to 4 custom-designed pages</li>
-                    <li>✔ Enhanced visual elements and animations</li>
-                    <li>✔ Advanced SEO optimization</li>
-                    <li>✔ Newsletter subscription integration</li>
-                </ul>
-                <p class="text-3xl font-extrabold text-purple-500 mb-8">$700</p>
-                <button id="checkout-4-page" class="package-btn bg-purple-600 text-white hover:bg-purple-700">Select Package</button>
-            </div>
-            <div class="bg-gray-800 rounded-2xl p-8 shadow-xl text-center">
-                <h2 class="text-3xl font-bold mb-4 text-green-400">5-Page Website</h2>
-                <ul class="text-left text-lg text-gray-300 mb-6 space-y-2">
-                    <li>✔ Up to 5 custom-designed pages</li>
-                    <li>✔ Interactive features and animations</li>
-                    <li>✔ Comprehensive SEO services</li>
-                    <li>✔ E-commerce integration</li>
-                </ul>
-                <p class="text-3xl font-extrabold text-green-500 mb-8">$875</p>
-                <button id="checkout-5-page" class="package-btn bg-green-600 text-white hover:bg-green-700">Select Package</button>
+            <div class="space-x-8">
+                <a href="index.html#portfolio" class="text-gray-700 hover:text-blue-500 transition transform hover:scale-110 inline-block font-medium">Portfolio</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-blue-500 transition transform hover:scale-110 inline-block font-medium">About</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-blue-500 transition transform hover:scale-110 inline-block font-medium">Contact</a>
             </div>
         </div>
-        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl text-center mt-16">
-            <h2 class="text-4xl font-bold mb-4 text-yellow-400">$60 Monthly Plan</h2>
-            <p class="text-xl text-gray-300 mb-6">Comprehensive support and updates for your website, ensuring top-notch performance and continuous improvements.</p>
-            <ul class="text-left text-lg text-gray-300 mb-6 space-y-2">
-                <li>✔ Monthly maintenance and updates</li>
-                <li>✔ Priority support for your business</li>
-                <li>✔ Regular performance optimizations</li>
-                <li>✔ Feature enhancements as needed</li>
-            </ul>
-            <p class="text-3xl font-extrabold text-yellow-500 mb-8">$60/month</p>
-            <button id="checkout-60-recurring" class="package-btn bg-yellow-600 text-white hover:bg-yellow-700">Subscribe Now</button>
-        </div>
-    </div>
+    </nav>
 
+    <header class="relative pt-32 pb-24 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="title-container">
+                <h1 class="text-6xl font-bold gradient-text">Our Web Design Packages</h1>
+            </div>
+            <p class="text-2xl max-w-4xl mx-auto mb-12 text-gray-700 leading-relaxed">
+                Explore our tailored web design solutions. Each package is crafted to meet your business needs with premium quality and personal attention.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="#pricing" class="button bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition">
+                    View Packages
+                </a>
+                <a href="index.html#contact" class="button bg-white text-blue-500 border-2 border-blue-500 hover:bg-blue-50 font-bold py-3 px-8 rounded-lg transition">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="title-container">
+                <h2 class="text-5xl font-bold gradient-text">Find Your Perfect Package</h2>
+            </div>
+            <p class="text-xl text-center max-w-4xl mx-auto mb-16 text-gray-700">
+                Choose the package that best fits your business needs. Each website is custom-designed to represent your brand and connect with your customers.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="package-card bg-white shadow-lg">
+                    <div class="bg-blue-500 p-6 text-center">
+                        <h3 class="text-3xl font-bold text-white">3-Page Website</h3>
+                        <p class="text-blue-100 mt-2">Perfect for small businesses</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-gray-800">$525</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-blue-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Up to 3 custom-designed pages</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-blue-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Responsive design for all devices</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-blue-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Basic SEO optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-blue-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Contact form integration</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <button id="checkout-3-page" class="package-btn bg-blue-500 hover:bg-blue-600 text-white w-full py-3 rounded-lg transition">Select Package</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="package-card bg-white shadow-lg transform scale-105 z-10">
+                    <div class="bg-purple-500 p-6 text-center">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-purple-900 text-sm font-bold px-4 py-1 rounded-full">MOST POPULAR</div>
+                        <h3 class="text-3xl font-bold text-white">4-Page Website</h3>
+                        <p class="text-purple-100 mt-2">Ideal for growing businesses</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-gray-800">$700</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-purple-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Up to 4 custom-designed pages</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-purple-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Enhanced visual elements and animations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-purple-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Advanced SEO optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-purple-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Newsletter subscription integration</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <button id="checkout-4-page" class="package-btn bg-purple-500 hover:bg-purple-600 text-white w-full py-3 rounded-lg transition">Select Package</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="package-card bg-white shadow-lg">
+                    <div class="bg-green-500 p-6 text-center">
+                        <h3 class="text-3xl font-bold text-white">5-Page Website</h3>
+                        <p class="text-green-100 mt-2">Complete business solution</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-gray-800">$875</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Up to 5 custom-designed pages</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Interactive features and animations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">Comprehensive SEO services</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-check-line text-green-500 text-xl mr-2 mt-0.5"></i>
+                                <span class="text-gray-700">E-commerce integration</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <button id="checkout-5-page" class="package-btn bg-green-500 hover:bg-green-600 text-white w-full py-3 rounded-lg transition">Select Package</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="package-card bg-gradient-to-r from-yellow-400 to-yellow-500 shadow-xl">
+                    <div class="p-10 text-center">
+                        <h3 class="text-4xl font-bold text-white mb-4">Monthly Support Plan</h3>
+                        <p class="text-lg text-yellow-100 mb-8">Ongoing support and updates to keep your website running smoothly</p>
+                        
+                        <div class="bg-white bg-opacity-20 p-6 rounded-lg mb-8">
+                            <span class="text-5xl font-bold text-white">$60</span>
+                            <span class="text-white text-xl">/month</span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8 text-left">
+                            <div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="ri-check-line text-white text-xl mr-2 mt-0.5"></i>
+                                        <span class="text-white">Monthly maintenance and updates</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="ri-check-line text-white text-xl mr-2 mt-0.5"></i>
+                                        <span class="text-white">Priority support for your business</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="ri-check-line text-white text-xl mr-2 mt-0.5"></i>
+                                        <span class="text-white">Regular performance optimizations</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="ri-check-line text-white text-xl mr-2 mt-0.5"></i>
+                                        <span class="text-white">Feature enhancements as needed</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button id="checkout-60-recurring" class="package-btn bg-white text-yellow-500 hover:bg-gray-100 px-10 py-4 text-xl font-bold rounded-lg transition">Subscribe Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="title-container">
+                <h2 class="text-5xl font-bold gradient-text">Why Choose ElCo?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10 mb-16">
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition hover-lift">
+                    <div class="bg-blue-100 text-blue-600 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-timer-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Quick Turnaround</h3>
+                    <p class="text-gray-600 text-center">We deliver your website in days, not months, without compromising on quality.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition hover-lift">
+                    <div class="bg-purple-100 text-purple-600 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-smartphone-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Mobile-First Design</h3>
+                    <p class="text-gray-600 text-center">Your website will look amazing on any device, ensuring you never miss a customer.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition hover-lift">
+                    <div class="bg-green-100 text-green-600 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-customer-service-2-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Dedicated Support</h3>
+                    <p class="text-gray-600 text-center">We're here for you even after your site launches with our monthly support plan.</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="index.html#contact" class="button bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-lg inline-block transition shadow-lg">
+                    Have Questions? Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="title-container">
+                <h2 class="text-5xl font-bold gradient-text">Ready to Get Started?</h2>
+            </div>
+            <p class="text-2xl max-w-4xl mx-auto mb-12 text-gray-700 leading-relaxed">
+                Choose your package above or schedule a free consultation to discuss your specific needs.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-8">
+                <a href="tel:(310)310-5314" class="button bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-lg inline-block transition shadow-md">
+                    <i class="ri-phone-line mr-2"></i> Call (310) 310-5314
+                </a>
+                <a href="https://calendly.com/elco-elcosites" target="_blank" class="button bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-lg inline-block transition shadow-md">
+                    <i class="ri-calendar-line mr-2"></i> Book a Free Call
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-50 border-t border-gray-200 text-gray-600 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center mb-6">
+                <div class="logo-icon mr-3">
+                    <div class="middle-line"></div>
+                </div>
+                <span class="text-2xl font-bold gradient-text">ElCo</span>
+            </div>
+            <p class="mb-4">&copy; <script>document.write(new Date().getFullYear())</script> ElCo Web Designs. Made with ❤️ in Santa Monica.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/charliec999" target="_blank" class="text-gray-500 hover:text-blue-500">
+                    <i class="ri-github-line text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const stripe = Stripe('pk_live_51QkCdLAXWw27eYnGhybBygwGzQi7MnDhUF7lmAtlnc9lzTAZqS4dRKu5jPXFUiCAgDLhHKEg24UQAUqi7jpxYRED00yfnigZhg');
@@ -157,18 +420,11 @@
                 cancelUrl: window.location.origin + '/canceled.html',
             });
         });
+        
         document.getElementById('checkout-60-recurring').addEventListener('click', () => {
             stripe.redirectToCheckout({
                 lineItems: [{ price: 'price_1QkTGVAXWw27eYnGT0WeCRLo', quantity: 1 }],
                 mode: 'subscription',
-                successUrl: window.location.origin + '/success.html',
-                cancelUrl: window.location.origin + '/canceled.html',
-            });
-        });
-        document.getElementById('checkout-test').addEventListener('click', () => {
-            stripe.redirectToCheckout({
-                lineItems: [{ price: 'price_1QlHi0AXWw27eYnG9HRd7q0B', quantity: 1 }],
-                mode: 'payment',
                 successUrl: window.location.origin + '/success.html',
                 cancelUrl: window.location.origin + '/canceled.html',
             });
